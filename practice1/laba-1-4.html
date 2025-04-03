@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Упражнение 4</title>
+</head>
+<body>
+    
+   <script>
+    class exampleClass 
+	{
+		constructor(title, url)
+		{
+            this.title = title;
+            this.url = url;
+        }
+		show()
+		{
+		document.write("Название: " + this.title + "<br>" + "Cсылка: " + this.url);
+		
+		}
+	}
+	var ex = new exampleClass("Google","https://www.google.com");
+	ex.show();
+</script>
+</body>
+</html>
