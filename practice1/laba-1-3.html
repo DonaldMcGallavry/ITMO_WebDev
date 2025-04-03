@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Упражнение 3</title>
+</head>
+<body>
+    
+   <script>
+    function dayChange(n) {
+        const lastDigit = n % 10;
+        const lastTwoDigits = n % 100;
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 14) 
+		document.write('До конца учёбы остаётся ' + n + ' дней<br>');
+        else if (lastDigit === 1) 
+		document.write('До конца учёбы остаётся ' + n + ' день<br>');
+        else if (lastDigit >= 2 && lastDigit <= 4) 
+		document.write('До конца учёбы остаётся ' + n + ' дня<br>');
+        else
+		document.write('До конца учёбы остаётся ' + n + ' дней<br>');
+		
+    }
+
+    dayChange(1);
+	dayChange(2);
+	dayChange(0);
+	dayChange(22);
+</script>
+</body>
+</html>
