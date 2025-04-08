@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>Обратная связь</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Обратная связь</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="finTask.html">Главная</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="teachers.html">Преподаватели</a></li>
+            <li><a href="multimedia.html">Материалы</a></li>
+            <li><a href="contacts.html">Обратная связь</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form id="feedbackForm" class="modern-form">
+
+            <div class="form-group">
+                <label for="email">Введите свою почту:</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="user@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="meeting">Выберите дату оценки:</label>
+                <input type="date" id="meeting" name="meeting" 
+                       min="2020-09-01" max="2025-12-31">
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Оцените сайт от 0 до 10: 
+                    <output id="ratingValue">5</output>/10
+                </label>
+                <input type="range" id="rating" name="rating" 
+                       min="1" max="10" value="5"
+                       oninput="ratingValue.value = this.value">
+            </div>
+
+            <div class="form-group">
+                <label for="teacher">Выберите преподавателя:</label>
+                <input list="teachers" id="teacher" name="teacher">
+                <datalist id="teachers">
+                    <option value="Иванова А.А.">
+                    <option value="Петров Б.В.">
+                    <option value="Сидорова В.Г.">
+                </datalist>
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Приоритет:</label>
+                <input type="color" id="priority" name="priority" 
+                       value="#ff0000" title="Выберите цвет приоритета">
+            </div>
+			
+			<button type="submit" class="submit-btn">Отправить</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2025 Школа №123. Все права защищены.</p>
+        <address>г. Санкт-Петербург, ул. Школьная, д. 123</address>
+    </footer>
+</body>
+</html>
