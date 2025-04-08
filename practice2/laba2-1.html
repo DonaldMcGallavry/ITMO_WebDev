@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Упражнение 1</title>
+</head>
+<body>
+    <h1>Упражнение 1</h1>
+	
+    <main align="center">
+    <img src="image.gif" alt="Пример изображения" id="resizableImage" width="300">
+	</main>
+    <script>
+        var image = document.getElementById('resizableImage');
+        var isEnlarged = false;
+        var originalWidth = image.width;
+        
+        image.addEventListener('click', function() {
+            if (isEnlarged) {
+                image.style.transform = 'scale(1)';
+            } else {
+                image.style.transform = 'scale(2)';
+            }
+            isEnlarged = !isEnlarged;
+        });
+    </script>
+</body>
+</html>
