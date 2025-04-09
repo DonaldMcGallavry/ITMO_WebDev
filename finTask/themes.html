@@ -55,8 +55,7 @@
             if (savedTheme) {
                 var statusElement = getElementSafe('themeStatus');
 				applyTheme(savedTheme);
-				statusElement.textContent = `Текущая тема: ${getThemeName(savedTheme)}`;
-				
+				statusElement.textContent = `Текущая тема: ${getThemeName(savedTheme)}`;	
             }
 			var lightThemeBut = getElementSafe('lightTheme');
 				lightThemeBut.addEventListener('click', () => {
@@ -80,10 +79,8 @@
                 localStorage.setItem('siteTheme', theme);
                 applyTheme(theme);
 				var savedTheme = getElementSafe('themeStatus');
-				if(savedTheme){
 				savedTheme.textContent = 
                     `Текущая тема: ${getThemeName(theme)}`;
-				}
             }
 
             function applyTheme(theme) {
