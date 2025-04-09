@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <title>Открытие нового окна</title>
+</head>
+<body>
+    <h1>Демонстрация открытия нового окна</h1>
+    <main align ="center">
+    <a href="#" id="newWindowLink">Новое окно</a>
+	</main>
+    <script>
+		function getElementSafe(elementId) {
+			try {
+				const element = document.getElementById(elementId);
+				if (!element) {
+					alert(`Элемент с ID "${elementId}" не найден`);
+					return null;
+				}  
+				return element;
+				} catch (error) {
+				alert(`Ошибка при поиске элемента с ID "${elementId}":`, error);
+				return null;
+				}	
+			}
+			var newWin = getElementSafe("newWindowLink");
+			
+			newWin.addEventListener('click', function(e) {
+            e.preventDefault();
+			
+            var windowFeatures = 
+                'width=300,height=400,menubar=yes,toolbar=yes,location=yes,status=yes,resizable=yes,scrollbars=yes';   
+
+            window.open('about:blank', 'newWindow', windowFeatures);
+
+        });
+    </script>
+</body>
+</html>

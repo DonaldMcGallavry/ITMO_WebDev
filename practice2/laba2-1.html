@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>Упражнение 1</title>
+</head>
+<body>
+    <h1>Упражнение 1</h1>
+	
+    <main align="center">
+    <img src="image.gif" alt="Пример изображения" id="resizableImage" width="300">
+	</main>
+    <script>
+		function getElementSafe(elementId) {
+			try {
+				const element = document.getElementById(elementId);
+				if (!element) {
+					alert(`Элемент с ID "${elementId}" не найден`);
+					return null;
+				}  
+				return element;
+				} catch (error) {
+				alert(`Ошибка при поиске элемента с ID "${elementId}":`, error);
+				return null;
+				}	
+			}
+        var image = getElementSafe('resizableImage');
+        var isEnlarged = false;
+        var originalWidth = image.width;
+        
+        image.addEventListener('click', function() {
+            if (isEnlarged) {
+                image.style.transform = 'scale(1)';
+            } else {
+                image.style.transform = 'scale(2)';
+            }
+            isEnlarged = !isEnlarged;
+        });
+    </script>
+</body>
+</html>
