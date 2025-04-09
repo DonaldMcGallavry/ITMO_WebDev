@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title>Школьное расписание - Настройки</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Мои настройки</h1>
+    </header>
+        <nav>
+        <ul>
+            <li><a href="finTask.html">Главная</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="themes.html">Темы оформления</a></li>
+            <li><a href="multimedia.html">Материалы</a></li>
+            <li><a href="contacts.html">Обратная связь</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="storage-section">
+            <h2>Настройки темы</h2>
+            <div class="theme-options">
+                <button id="lightTheme">Светлая тема</button>
+                <button id="darkTheme">Тёмная тема</button>
+                <button id="greenTheme">Зелёная тема</button>
+            </div>
+            <p id="themeStatus">Текущая тема: Светлая</p>
+        </section>
+
+    </main>
+    <footer>
+       <p>© 2025 Школа №123. Все права защищены.</p>
+        <address>г. Санкт-Петербург, ул. Школьная, д. 123</address>
+    </footer>
+
+      <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+			
+			function getElementSafe(elementId) {
+			try {
+				var element = document.getElementById(elementId);
+				if (!element) {
+					alert(`Элемент с ID "${elementId}" не найден`);
+					return null;
+				}  
+				return element;
+				} catch (error) {
+				alert(`Ошибка при поиске элемента с ID "${elementId}":`, error);
+				return null;
+				}	
+			}
+
+            var savedTheme = localStorage.getItem('siteTheme'); 
+            if (savedTheme) {
+                var statusElement = getElementSafe('themeStatus');
+				applyTheme(savedTheme);
+				statusElement.textContent = `Текущая тема: ${getThemeName(savedTheme)}`;
+				
+            }
+			var lightThemeBut = getElementSafe('lightTheme');
+				lightThemeBut.addEventListener('click', () => {
+				saveTheme('light');
+				});
+			 
+			
+            var darkThemeBut = getElementSafe('darkTheme');
+				darkThemeBut.addEventListener('click', () => {
+				saveTheme('dark');
+				});
+			 	
+
+            var greenThemeBut = getElementSafe('greenTheme');			
+				greenThemeBut.addEventListener('click', () => {
+				saveTheme('green');
+				});
+ 	
+
+            function saveTheme(theme) {
+                localStorage.setItem('siteTheme', theme);
+                applyTheme(theme);
+				var savedTheme = getElementSafe('themeStatus');
+				if(savedTheme){
+				savedTheme.textContent = 
+                    `Текущая тема: ${getThemeName(theme)}`;
+				}
+            }
+
+            function applyTheme(theme) {
+                document.body.className = theme + '-theme';
+            }
+
+            function getThemeName(theme) {
+                var themes = {
+                    'light': 'Светлая',
+                    'dark': 'Тёмная',
+                    'green': 'Зелёная'
+                };
+                return themes[theme] || 'Светлая';
+            }
+ 
+        });
+    </script>
+</body>
+</html>
